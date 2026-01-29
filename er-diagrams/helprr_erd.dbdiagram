@@ -1,0 +1,85 @@
+# Entity Relationship Diagram - DBDiagram.io Format
+# Copy this code to https://dbdiagram.io to visualize
+
+Table users {
+  id int [pk, increment]
+  name varchar(100) [not null]
+  email varchar(100) [unique, not null]
+  password_hash text [not null]
+  phone varchar(15)
+  role enum [not null, note: "user, shop, admin"]
+  profile_image varchar(255)
+  created_at datetime [default: `CURRENT_TIMESTAMP`]
+  updated_at datetime [default: `CURRENT_TIMESTAMP`, note: "ON UPDATE CURRENT_TIMESTAMP"]
+}
+
+Table service_providers {
+  id int [pk, increment]
+  user_id int [not null, unique]
+  shop_name varchar(100) [not null]
+  description text
+  experience_years int
+  location varchar(255)
+  latitude decimal(10,8)
+  longitude decimal(11,8)
+  negotiable boolean [default: true]
+  charge_range_min decimal(10,2)
+  charge_range_max decimal(10,2)
+  certification_file varchar(255)
+  category_ids json
+  shop_image varchar(255)
+  approved boolean [default: false]
+  created_at datetime [default: `CURRENT_TIMESTAMP`]
+  updated_at datetime [default: `CURRENT_TIMESTAMP`, note: "ON UPDATE CURRENT_TIMESTAMP"]
+}
+
+Table services_offered {
+  id int [pk, increment]
+  provider_id int [not null]
+  title varchar(100) [not null]
+  description text
+  price decimal(10,2)
+  estimated_time varchar(50)
+  created_at datetime [default: `CURRENT_TIMESTAMP`]
+}
+
+Table reviews {
+  id int [pk, increment]
+  user_id int [not null]
+  provider_id int [not null]
+  rating tinyint [not null, note: "CHECK (rating BETWEEN 1 AND 5)"]
+  comment text
+  created_at datetime [default: `CURRENT_TIMESTAMP`]
+}
+
+Table electronics_categories {
+  id int [pk, increment]
+  name varchar(50) [unique, not null]
+  icon varchar(255)
+}
+
+Table uploaded_files {
+  id int [pk, increment]
+  user_id int [not null]
+  filename varchar(255)
+  file_path varchar(255)
+  upload_type enum [not null, note: "certificate, image, document"]
+  uploaded_at datetime [default: `CURRENT_TIMESTAMP`]
+}
+
+Table sessions {
+  session_id varchar(128) [pk]
+  user_id int [not null]
+  ip_address varchar(45)
+  user_agent text
+  login_time datetime [default: `CURRENT_TIMESTAMP`]
+  last_activity datetime [default: `CURRENT_TIMESTAMP`, note: "ON UPDATE CURRENT_TIMESTAMP"]
+}
+
+# Foreign Key Relationships
+Ref: service_providers.user_id > users.id [delete: cascade]
+Ref: services_offered.provider_id > service_providers.id [delete: cascade]
+Ref: reviews.user_id > users.id [delete: cascade]
+Ref: reviews.provider_id > service_providers.id [delete: cascade]
+Ref: uploaded_files.user_id > users.id [delete: cascade]
+Ref: sessions.user_id > users.id [delete: cascade]

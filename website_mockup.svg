@@ -1,0 +1,363 @@
+<svg viewBox="0 0 1200 1400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define styles -->
+  <defs>
+    <style>
+      .header-gradient { fill: url(#headerGrad); }
+      .card-shadow { filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+      .text-white { fill: white; }
+      .text-dark { fill: #333; }
+      .text-gray { fill: #666; }
+      .text-purple { fill: #667eea; }
+      .btn-primary { fill: #667eea; }
+      .btn-primary:hover { fill: #764ba2; }
+      .card-bg { fill: white; stroke: #eee; stroke-width: 1; }
+      .category-btn { fill: #f5f5f5; stroke: #ddd; stroke-width: 1; }
+      .category-active { fill: #667eea; }
+      .star { fill: #ffc107; }
+    </style>
+    
+    <!-- Header Gradient -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- HEADER -->
+  <rect width="1200" height="100" class="header-gradient"/>
+  
+  <!-- Logo -->
+  <circle cx="60" cy="50" r="30" fill="white" opacity="0.2"/>
+  <text x="60" y="60" font-size="40" text-anchor="middle" class="text-white" font-weight="bold">🔧</text>
+  
+  <!-- Brand Name -->
+  <text x="110" y="35" font-size="28" font-weight="bold" class="text-white">Helprr</text>
+  <text x="110" y="55" font-size="12" class="text-white" opacity="0.9">Hyperlocal Electronics Repair</text>
+  
+  <!-- Navigation Links -->
+  <text x="550" y="50" font-size="14" class="text-white" text-anchor="middle">Home</text>
+  <line x1="540" y1="60" x2="560" y2="60" stroke="white" stroke-width="2"/>
+  
+  <text x="650" y="50" font-size="14" class="text-white" text-anchor="middle" opacity="0.8">Browse Services</text>
+  <text x="800" y="50" font-size="14" class="text-white" text-anchor="middle" opacity="0.8">My Services</text>
+  
+  <!-- Auth Buttons -->
+  <rect x="950" y="32" width="80" height="36" rx="4" fill="white" opacity="0.2" stroke="white" stroke-width="1"/>
+  <text x="990" y="55" font-size="13" class="text-white" text-anchor="middle" font-weight="500">Login</text>
+  
+  <rect x="1050" y="32" width="100" height="36" rx="4" fill="white"/>
+  <text x="1100" y="55" font-size="13" class="text-purple" text-anchor="middle" font-weight="bold">Register</text>
+
+  <!-- HERO SECTION -->
+  <rect y="100" width="1200" height="150" fill="#f9f9f9"/>
+  
+  <!-- Search Bar Container -->
+  <rect x="200" y="130" width="800" height="50" rx="8" fill="white" class="card-shadow"/>
+  
+  <!-- Search Icon -->
+  <text x="225" y="165" font-size="20">🔍</text>
+  
+  <!-- Search Input -->
+  <text x="270" y="145" font-size="12" class="text-gray">Search for services...</text>
+  <text x="270" y="168" font-size="14" class="text-dark" font-weight="500">iPhone Repair, Laptop Fix, Gaming Console</text>
+  
+  <!-- Location Icon -->
+  <text x="920" y="165" font-size="18">📍</text>
+  
+  <!-- Tagline -->
+  <text x="600" y="210" font-size="16" class="text-gray" text-anchor="middle">Find trusted local repair experts near you</text>
+
+  <!-- CATEGORY SECTION -->
+  <text x="50" y="290" font-size="20" font-weight="bold" class="text-dark">Popular Categories</text>
+  
+  <!-- Category Buttons -->
+  <g>
+    <!-- Category 1 - Active -->
+    <rect x="50" y="310" width="140" height="40" rx="6" class="category-active"/>
+    <text x="120" y="340" font-size="13" class="text-white" text-anchor="middle" font-weight="500">📱 Smartphone</text>
+    
+    <!-- Category 2 -->
+    <rect x="210" y="310" width="140" height="40" rx="6" class="category-btn"/>
+    <text x="280" y="340" font-size="13" class="text-dark" text-anchor="middle" font-weight="500">💻 Laptop</text>
+    
+    <!-- Category 3 -->
+    <rect x="370" y="310" width="140" height="40" rx="6" class="category-btn"/>
+    <text x="440" y="340" font-size="13" class="text-dark" text-anchor="middle" font-weight="500">🎮 Gaming</text>
+    
+    <!-- Category 4 -->
+    <rect x="530" y="310" width="140" height="40" rx="6" class="category-btn"/>
+    <text x="600" y="340" font-size="13" class="text-dark" text-anchor="middle" font-weight="500">⌚ Smartwatch</text>
+    
+    <!-- Category 5 -->
+    <rect x="690" y="310" width="140" height="40" rx="6" class="category-btn"/>
+    <text x="760" y="340" font-size="13" class="text-dark" text-anchor="middle" font-weight="500">📺 TV</text>
+    
+    <!-- Category 6 -->
+    <rect x="850" y="310" width="140" height="40" rx="6" class="category-btn"/>
+    <text x="920" y="340" font-size="13" class="text-dark" text-anchor="middle" font-weight="500">🎧 Headphones</text>
+  </g>
+
+  <!-- SERVICE CARDS GRID -->
+  <text x="50" y="400" font-size="20" font-weight="bold" class="text-dark">Available Repair Services</text>
+
+  <!-- CARD 1 -->
+  <g class="card-shadow">
+    <rect x="50" y="420" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="50" y="420" width="260" height="140" rx="8 8 0 0" fill="#667eea" opacity="0.2"/>
+    <text x="180" y="500" font-size="60" text-anchor="middle">📱</text>
+    
+    <!-- Shop Name -->
+    <text x="65" y="580" font-size="16" font-weight="bold" class="text-dark">Tech Fix Hub</text>
+    
+    <!-- Rating -->
+    <text x="65" y="605" font-size="12" class="text-gray">⭐ 4.8 (127 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="65" y="625" font-size="12" class="text-gray">Smartphone Repairs</text>
+    
+    <!-- Price -->
+    <text x="65" y="650" font-size="14" font-weight="bold" class="text-purple">$25 - $150</text>
+    
+    <!-- Experience -->
+    <text x="65" y="670" font-size="11" class="text-gray">📅 8 years experience</text>
+    
+    <!-- Location -->
+    <text x="65" y="688" font-size="11" class="text-gray">📍 Downtown Area</text>
+    
+    <!-- View Button -->
+    <rect x="65" y="700" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="180" y="723" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- CARD 2 -->
+  <g class="card-shadow">
+    <rect x="330" y="420" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="330" y="420" width="260" height="140" rx="8 8 0 0" fill="#764ba2" opacity="0.2"/>
+    <text x="460" y="500" font-size="60" text-anchor="middle">💻</text>
+    
+    <!-- Shop Name -->
+    <text x="345" y="580" font-size="16" font-weight="bold" class="text-dark">Laptop Rescue</text>
+    
+    <!-- Rating -->
+    <text x="345" y="605" font-size="12" class="text-gray">⭐ 4.9 (89 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="345" y="625" font-size="12" class="text-gray">Laptop & Desktop Repair</text>
+    
+    <!-- Price -->
+    <text x="345" y="650" font-size="14" font-weight="bold" class="text-purple">$50 - $200</text>
+    
+    <!-- Experience -->
+    <text x="345" y="670" font-size="11" class="text-gray">📅 12 years experience</text>
+    
+    <!-- Location -->
+    <text x="345" y="688" font-size="11" class="text-gray">📍 Midtown</text>
+    
+    <!-- View Button -->
+    <rect x="345" y="700" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="460" y="723" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- CARD 3 -->
+  <g class="card-shadow">
+    <rect x="610" y="420" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="610" y="420" width="260" height="140" rx="8 8 0 0" fill="#8b5cf6" opacity="0.2"/>
+    <text x="740" y="500" font-size="60" text-anchor="middle">🎮</text>
+    
+    <!-- Shop Name -->
+    <text x="625" y="580" font-size="16" font-weight="bold" class="text-dark">Gaming Pro Services</text>
+    
+    <!-- Rating -->
+    <text x="625" y="605" font-size="12" class="text-gray">⭐ 4.7 (64 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="625" y="625" font-size="12" class="text-gray">Console & PC Gaming Repair</text>
+    
+    <!-- Price -->
+    <text x="625" y="650" font-size="14" font-weight="bold" class="text-purple">$30 - $180</text>
+    
+    <!-- Experience -->
+    <text x="625" y="670" font-size="11" class="text-gray">📅 6 years experience</text>
+    
+    <!-- Location -->
+    <text x="625" y="688" font-size="11" class="text-gray">📍 North District</text>
+    
+    <!-- View Button -->
+    <rect x="625" y="700" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="740" y="723" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- CARD 4 -->
+  <g class="card-shadow">
+    <rect x="890" y="420" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="890" y="420" width="260" height="140" rx="8 8 0 0" fill="#ec4899" opacity="0.2"/>
+    <text x="1020" y="500" font-size="60" text-anchor="middle">⌚</text>
+    
+    <!-- Shop Name -->
+    <text x="905" y="580" font-size="16" font-weight="bold" class="text-dark">Watch & Tech Care</text>
+    
+    <!-- Rating -->
+    <text x="905" y="605" font-size="12" class="text-gray">⭐ 4.6 (42 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="905" y="625" font-size="12" class="text-gray">Smartwatch Repair</text>
+    
+    <!-- Price -->
+    <text x="905" y="650" font-size="14" font-weight="bold" class="text-purple">$20 - $100</text>
+    
+    <!-- Experience -->
+    <text x="905" y="670" font-size="11" class="text-gray">📅 5 years experience</text>
+    
+    <!-- Location -->
+    <text x="905" y="688" font-size="11" class="text-gray">📍 West Side</text>
+    
+    <!-- View Button -->
+    <rect x="905" y="700" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="1020" y="723" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- MORE CARDS ROW -->
+  <text x="50" y="750" font-size="20" font-weight="bold" class="text-dark">More Services</text>
+
+  <!-- CARD 5 -->
+  <g class="card-shadow">
+    <rect x="50" y="770" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="50" y="770" width="260" height="140" rx="8 8 0 0" fill="#06b6d4" opacity="0.2"/>
+    <text x="180" y="850" font-size="60" text-anchor="middle">📺</text>
+    
+    <!-- Shop Name -->
+    <text x="65" y="930" font-size="16" font-weight="bold" class="text-dark">Screen Masters</text>
+    
+    <!-- Rating -->
+    <text x="65" y="955" font-size="12" class="text-gray">⭐ 4.8 (156 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="65" y="975" font-size="12" class="text-gray">TV & Monitor Repair</text>
+    
+    <!-- Price -->
+    <text x="65" y="1000" font-size="14" font-weight="bold" class="text-purple">$60 - $250</text>
+    
+    <!-- Experience -->
+    <text x="65" y="1020" font-size="11" class="text-gray">📅 10 years experience</text>
+    
+    <!-- Location -->
+    <text x="65" y="1038" font-size="11" class="text-gray">📍 Central Hub</text>
+    
+    <!-- View Button -->
+    <rect x="65" y="1050" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="180" y="1073" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- CARD 6 -->
+  <g class="card-shadow">
+    <rect x="330" y="770" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="330" y="770" width="260" height="140" rx="8 8 0 0" fill="#f59e0b" opacity="0.2"/>
+    <text x="460" y="850" font-size="60" text-anchor="middle">🎧</text>
+    
+    <!-- Shop Name -->
+    <text x="345" y="930" font-size="16" font-weight="bold" class="text-dark">Audio Pro Experts</text>
+    
+    <!-- Rating -->
+    <text x="345" y="955" font-size="12" class="text-gray">⭐ 4.7 (103 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="345" y="975" font-size="12" class="text-gray">Headphones & Speakers</text>
+    
+    <!-- Price -->
+    <text x="345" y="1000" font-size="14" font-weight="bold" class="text-purple">$15 - $120</text>
+    
+    <!-- Experience -->
+    <text x="345" y="1020" font-size="11" class="text-gray">📅 7 years experience</text>
+    
+    <!-- Location -->
+    <text x="345" y="1038" font-size="11" class="text-gray">📍 South End</text>
+    
+    <!-- View Button -->
+    <rect x="345" y="1050" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="460" y="1073" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- CARD 7 -->
+  <g class="card-shadow">
+    <rect x="610" y="770" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="610" y="770" width="260" height="140" rx="8 8 0 0" fill="#10b981" opacity="0.2"/>
+    <text x="740" y="850" font-size="60" text-anchor="middle">🔌</text>
+    
+    <!-- Shop Name -->
+    <text x="625" y="930" font-size="16" font-weight="bold" class="text-dark">Electronics Hospital</text>
+    
+    <!-- Rating -->
+    <text x="625" y="955" font-size="12" class="text-gray">⭐ 4.9 (201 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="625" y="975" font-size="12" class="text-gray">General Electronics</text>
+    
+    <!-- Price -->
+    <text x="625" y="1000" font-size="14" font-weight="bold" class="text-purple">$25 - $300</text>
+    
+    <!-- Experience -->
+    <text x="625" y="1020" font-size="11" class="text-gray">📅 15 years experience</text>
+    
+    <!-- Location -->
+    <text x="625" y="1038" font-size="11" class="text-gray">📍 East Market</text>
+    
+    <!-- View Button -->
+    <rect x="625" y="1050" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="740" y="1073" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- CARD 8 - Featured -->
+  <g class="card-shadow">
+    <rect x="890" y="770" width="260" height="280" rx="8" class="card-bg"/>
+    
+    <!-- Card Header Image -->
+    <rect x="890" y="770" width="260" height="140" rx="8 8 0 0" fill="#ef4444" opacity="0.2"/>
+    <text x="1020" y="850" font-size="60" text-anchor="middle">🔧</text>
+    
+    <!-- Shop Name -->
+    <text x="905" y="930" font-size="16" font-weight="bold" class="text-dark">Precision Repairs</text>
+    
+    <!-- Rating -->
+    <text x="905" y="955" font-size="12" class="text-gray">⭐ 5.0 (98 reviews)</text>
+    
+    <!-- Service Type -->
+    <text x="905" y="975" font-size="12" class="text-gray">Premium Repair Service</text>
+    
+    <!-- Price -->
+    <text x="905" y="1000" font-size="14" font-weight="bold" class="text-purple">$40 - $400</text>
+    
+    <!-- Experience -->
+    <text x="905" y="1020" font-size="11" class="text-gray">📅 20 years experience</text>
+    
+    <!-- Location -->
+    <text x="905" y="1038" font-size="11" class="text-gray">📍 City Center</text>
+    
+    <!-- View Button -->
+    <rect x="905" y="1050" width="230" height="35" rx="4" class="btn-primary"/>
+    <text x="1020" y="1073" font-size="13" class="text-white" text-anchor="middle" font-weight="500">View Shop</text>
+  </g>
+
+  <!-- FOOTER -->
+  <rect y="1350" width="1200" height="50" fill="#1f2937"/>
+  
+  <text x="50" y="1380" font-size="13" class="text-white" opacity="0.7">© 2024 Helprr - Hyperlocal Electronics Repair Marketplace</text>
+  <text x="600" y="1380" font-size="13" class="text-white" opacity="0.7">About • Privacy • Terms • Contact</text>
+  <text x="1050" y="1380" font-size="13" class="text-white" opacity="0.7">Follow Us 📱</text>
+
+  <!-- Scroll Indicator -->
+  <text x="600" y="1320" font-size="14" class="text-gray" text-anchor="middle" opacity="0.6">↓ Scroll to see more services ↓</text>
+</svg>

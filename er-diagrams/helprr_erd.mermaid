@@ -1,0 +1,84 @@
+erDiagram
+    USERS ||--o{ SERVICE_PROVIDERS : has
+    USERS ||--o{ REVIEWS : writes
+    USERS ||--o{ UPLOADED_FILES : uploads
+    USERS ||--o{ SESSIONS : creates
+    SERVICE_PROVIDERS ||--o{ SERVICES_OFFERED : offers
+    SERVICE_PROVIDERS ||--o{ REVIEWS : receives
+    ELECTRONICS_CATEGORIES ||--o{ SERVICE_PROVIDERS : supports
+    REVIEWS }o--|| SERVICE_PROVIDERS : rates
+
+    USERS {
+        int id PK
+        string name
+        string email UK
+        text password_hash
+        string phone
+        enum role
+        string profile_image
+        datetime created_at
+        datetime updated_at
+    }
+
+    SERVICE_PROVIDERS {
+        int id PK
+        int user_id FK
+        string shop_name
+        text description
+        int experience_years
+        string location
+        decimal latitude
+        decimal longitude
+        boolean negotiable
+        decimal charge_range_min
+        decimal charge_range_max
+        string certification_file
+        json category_ids
+        string shop_image
+        boolean approved
+        datetime created_at
+        datetime updated_at
+    }
+
+    SERVICES_OFFERED {
+        int id PK
+        int provider_id FK
+        string title
+        text description
+        decimal price
+        string estimated_time
+        datetime created_at
+    }
+
+    REVIEWS {
+        int id PK
+        int user_id FK
+        int provider_id FK
+        tinyint rating
+        text comment
+        datetime created_at
+    }
+
+    ELECTRONICS_CATEGORIES {
+        int id PK
+        string name UK
+        string icon
+    }
+
+    UPLOADED_FILES {
+        int id PK
+        int user_id FK
+        string filename
+        string file_path
+        enum upload_type
+        datetime uploaded_at
+    }
+
+    SESSIONS {
+        string session_id PK
+        int user_id FK
+        string ip_address
+        text user_agent
+        datetime login_time
+        datetime last_activity
+    }

@@ -1,0 +1,103 @@
+digraph Helprr_Database {
+    rankdir=TB;
+    node [shape=plaintext];
+    
+    // Table definitions
+    users [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="lightblue"><B>users</B></TD></TR>
+            <TR><TD ALIGN="LEFT">id</TD><TD ALIGN="LEFT">INT (PK)</TD></TR>
+            <TR><TD ALIGN="LEFT">name</TD><TD ALIGN="LEFT">VARCHAR(100)</TD></TR>
+            <TR><TD ALIGN="LEFT">email</TD><TD ALIGN="LEFT">VARCHAR(100) (UK)</TD></TR>
+            <TR><TD ALIGN="LEFT">password_hash</TD><TD ALIGN="LEFT">TEXT</TD></TR>
+            <TR><TD ALIGN="LEFT">phone</TD><TD ALIGN="LEFT">VARCHAR(15)</TD></TR>
+            <TR><TD ALIGN="LEFT">role</TD><TD ALIGN="LEFT">ENUM</TD></TR>
+            <TR><TD ALIGN="LEFT">profile_image</TD><TD ALIGN="LEFT">VARCHAR(255)</TD></TR>
+            <TR><TD ALIGN="LEFT">created_at</TD><TD ALIGN="LEFT">DATETIME</TD></TR>
+            <TR><TD ALIGN="LEFT">updated_at</TD><TD ALIGN="LEFT">DATETIME</TD></TR>
+        </TABLE>
+    >];
+    
+    service_providers [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="lightgreen"><B>service_providers</B></TD></TR>
+            <TR><TD ALIGN="LEFT">id</TD><TD ALIGN="LEFT">INT (PK)</TD></TR>
+            <TR><TD ALIGN="LEFT">user_id</TD><TD ALIGN="LEFT">INT (FK)</TD></TR>
+            <TR><TD ALIGN="LEFT">shop_name</TD><TD ALIGN="LEFT">VARCHAR(100)</TD></TR>
+            <TR><TD ALIGN="LEFT">description</TD><TD ALIGN="LEFT">TEXT</TD></TR>
+            <TR><TD ALIGN="LEFT">experience_years</TD><TD ALIGN="LEFT">INT</TD></TR>
+            <TR><TD ALIGN="LEFT">location</TD><TD ALIGN="LEFT">VARCHAR(255)</TD></TR>
+            <TR><TD ALIGN="LEFT">latitude</TD><TD ALIGN="LEFT">DECIMAL(10,8)</TD></TR>
+            <TR><TD ALIGN="LEFT">longitude</TD><TD ALIGN="LEFT">DECIMAL(11,8)</TD></TR>
+            <TR><TD ALIGN="LEFT">charge_range_min</TD><TD ALIGN="LEFT">DECIMAL(10,2)</TD></TR>
+            <TR><TD ALIGN="LEFT">charge_range_max</TD><TD ALIGN="LEFT">DECIMAL(10,2)</TD></TR>
+            <TR><TD ALIGN="LEFT">category_ids</TD><TD ALIGN="LEFT">JSON</TD></TR>
+            <TR><TD ALIGN="LEFT">approved</TD><TD ALIGN="LEFT">BOOLEAN</TD></TR>
+        </TABLE>
+    >];
+    
+    services_offered [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="lightyellow"><B>services_offered</B></TD></TR>
+            <TR><TD ALIGN="LEFT">id</TD><TD ALIGN="LEFT">INT (PK)</TD></TR>
+            <TR><TD ALIGN="LEFT">provider_id</TD><TD ALIGN="LEFT">INT (FK)</TD></TR>
+            <TR><TD ALIGN="LEFT">title</TD><TD ALIGN="LEFT">VARCHAR(100)</TD></TR>
+            <TR><TD ALIGN="LEFT">description</TD><TD ALIGN="LEFT">TEXT</TD></TR>
+            <TR><TD ALIGN="LEFT">price</TD><TD ALIGN="LEFT">DECIMAL(10,2)</TD></TR>
+            <TR><TD ALIGN="LEFT">estimated_time</TD><TD ALIGN="LEFT">VARCHAR(50)</TD></TR>
+        </TABLE>
+    >];
+    
+    reviews [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="lightcoral"><B>reviews</B></TD></TR>
+            <TR><TD ALIGN="LEFT">id</TD><TD ALIGN="LEFT">INT (PK)</TD></TR>
+            <TR><TD ALIGN="LEFT">user_id</TD><TD ALIGN="LEFT">INT (FK)</TD></TR>
+            <TR><TD ALIGN="LEFT">provider_id</TD><TD ALIGN="LEFT">INT (FK)</TD></TR>
+            <TR><TD ALIGN="LEFT">rating</TD><TD ALIGN="LEFT">TINYINT (1-5)</TD></TR>
+            <TR><TD ALIGN="LEFT">comment</TD><TD ALIGN="LEFT">TEXT</TD></TR>
+            <TR><TD ALIGN="LEFT">created_at</TD><TD ALIGN="LEFT">DATETIME</TD></TR>
+        </TABLE>
+    >];
+    
+    categories [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="plum"><B>electronics_categories</B></TD></TR>
+            <TR><TD ALIGN="LEFT">id</TD><TD ALIGN="LEFT">INT (PK)</TD></TR>
+            <TR><TD ALIGN="LEFT">name</TD><TD ALIGN="LEFT">VARCHAR(50)</TD></TR>
+            <TR><TD ALIGN="LEFT">icon</TD><TD ALIGN="LEFT">VARCHAR(255)</TD></TR>
+        </TABLE>
+    >];
+    
+    uploaded_files [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="wheat"><B>uploaded_files</B></TD></TR>
+            <TR><TD ALIGN="LEFT">id</TD><TD ALIGN="LEFT">INT (PK)</TD></TR>
+            <TR><TD ALIGN="LEFT">user_id</TD><TD ALIGN="LEFT">INT (FK)</TD></TR>
+            <TR><TD ALIGN="LEFT">filename</TD><TD ALIGN="LEFT">VARCHAR(255)</TD></TR>
+            <TR><TD ALIGN="LEFT">file_path</TD><TD ALIGN="LEFT">VARCHAR(255)</TD></TR>
+            <TR><TD ALIGN="LEFT">upload_type</TD><TD ALIGN="LEFT">ENUM</TD></TR>
+            <TR><TD ALIGN="LEFT">uploaded_at</TD><TD ALIGN="LEFT">DATETIME</TD></TR>
+        </TABLE>
+    >];
+    
+    sessions [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="lightsteelblue"><B>sessions</B></TD></TR>
+            <TR><TD ALIGN="LEFT">session_id</TD><TD ALIGN="LEFT">VARCHAR(128) (PK)</TD></TR>
+            <TR><TD ALIGN="LEFT">user_id</TD><TD ALIGN="LEFT">INT (FK)</TD></TR>
+            <TR><TD ALIGN="LEFT">ip_address</TD><TD ALIGN="LEFT">VARCHAR(45)</TD></TR>
+            <TR><TD ALIGN="LEFT">user_agent</TD><TD ALIGN="LEFT">TEXT</TD></TR>
+            <TR><TD ALIGN="LEFT">login_time</TD><TD ALIGN="LEFT">DATETIME</TD></TR>
+            <TR><TD ALIGN="LEFT">last_activity</TD><TD ALIGN="LEFT">DATETIME</TD></TR>
+        </TABLE>
+    >];
+    
+    // Relationships
+    users -> service_providers [label="1:M\nuser_id"];
+    users -> reviews [label="1:M\nuser_id"];
+    users -> uploaded_files [label="1:M\nuser_id"];
+    users -> sessions [label="1:M\nuser_id"];
+    service_providers -> services_offered [label="1:M\nprovider_id"];
+    service_providers -> reviews [label="1:M\nprovider_id"];
+}

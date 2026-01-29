@@ -1,0 +1,97 @@
+@startuml Helprr_Database
+
+!define TABLE(name,pk) class name [[{#FFCCCC}]] as pk
+
+entity "users" as USERS {
+    * id : INT <<PK>>
+    --
+    name : VARCHAR(100)
+    email : VARCHAR(100) <<UK>>
+    password_hash : TEXT
+    phone : VARCHAR(15)
+    role : ENUM('user','shop','admin')
+    profile_image : VARCHAR(255)
+    created_at : DATETIME
+    updated_at : DATETIME
+}
+
+entity "service_providers" as SERVICE_PROVIDERS {
+    * id : INT <<PK>>
+    * user_id : INT <<FK>>
+    --
+    shop_name : VARCHAR(100)
+    description : TEXT
+    experience_years : INT
+    location : VARCHAR(255)
+    latitude : DECIMAL(10,8)
+    longitude : DECIMAL(11,8)
+    negotiable : BOOLEAN
+    charge_range_min : DECIMAL(10,2)
+    charge_range_max : DECIMAL(10,2)
+    certification_file : VARCHAR(255)
+    category_ids : JSON
+    shop_image : VARCHAR(255)
+    approved : BOOLEAN
+    created_at : DATETIME
+    updated_at : DATETIME
+}
+
+entity "services_offered" as SERVICES {
+    * id : INT <<PK>>
+    * provider_id : INT <<FK>>
+    --
+    title : VARCHAR(100)
+    description : TEXT
+    price : DECIMAL(10,2)
+    estimated_time : VARCHAR(50)
+    created_at : DATETIME
+}
+
+entity "reviews" as REVIEWS {
+    * id : INT <<PK>>
+    * user_id : INT <<FK>>
+    * provider_id : INT <<FK>>
+    --
+    rating : TINYINT (1-5)
+    comment : TEXT
+    created_at : DATETIME
+}
+
+entity "electronics_categories" as CATEGORIES {
+    * id : INT <<PK>>
+    --
+    name : VARCHAR(50) <<UK>>
+    icon : VARCHAR(255)
+}
+
+entity "uploaded_files" as UPLOADED_FILES {
+    * id : INT <<PK>>
+    * user_id : INT <<FK>>
+    --
+    filename : VARCHAR(255)
+    file_path : VARCHAR(255)
+    upload_type : ENUM('certificate','image','document')
+    uploaded_at : DATETIME
+}
+
+entity "sessions" as SESSIONS {
+    * session_id : VARCHAR(128) <<PK>>
+    * user_id : INT <<FK>>
+    --
+    ip_address : VARCHAR(45)
+    user_agent : TEXT
+    login_time : DATETIME
+    last_activity : DATETIME
+}
+
+' Relationships
+USERS ||--o{ SERVICE_PROVIDERS : "user_id"
+USERS ||--o{ REVIEWS : "writes (user_id)"
+USERS ||--o{ UPLOADED_FILES : "user_id"
+USERS ||--o{ SESSIONS : "user_id"
+SERVICE_PROVIDERS ||--o{ SERVICES : "provider_id"
+SERVICE_PROVIDERS ||--o{ REVIEWS : "receives (provider_id)"
+CATEGORIES ||--o{ SERVICE_PROVIDERS : "supports"
+SESSIONS ||--|| USERS : "manages"
+
+@enduml
